@@ -1,0 +1,24 @@
+# Git Bootcamp
+
+# Guests
+
+import { Link } from "gatsby"
+import { useGuests } from "../hooks/useGuests.ts"
+
+export const GuestList = () => {
+  const guests = useGuests()
+  return (
+    <>
+      {guests.map(guest => {
+        return (
+          <>
+            <Link to={`/introduce-yourself/${guest.slug}`}>{guest.title}</Link>
+            <br></br>
+          </>
+        )
+      })}
+    </>
+  )
+}
+
+<GuestList />
